@@ -3,12 +3,12 @@ var cors = require('cors');
 const app = express();
 app.use(cors());
 
-var quotes = require("./quotes.json");
+var quotes = require("./posts.json");
 
 app.get('/', function (req, res) {
-    res.send({
-        quote: quotes[Math.floor(Math.random() * (quotes.length))]
-    });
+    res.send(
+        quotes[Math.floor(Math.random() * (quotes.length))]
+    );
 });
 
 app.listen(process.env.PORT || 3000, function () {
